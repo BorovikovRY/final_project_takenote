@@ -1,0 +1,3 @@
+[submodule "takenote"]
+    path = takenote
+    url = https://github.com/username/takenote.git
