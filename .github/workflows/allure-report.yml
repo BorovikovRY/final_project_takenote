@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Используем актуальную версию
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -28,6 +28,13 @@ jobs:
           playwright install
           playwright install-deps
 
+      - name: Install Allure
+        run: |
+          curl -o allure-2.24.0.tgz -Ls https://github.com/allure-framework/allure2/releases/download/2.24.0/allure-2.24.0.tgz
+          sudo tar -zxvf allure-2.24.0.tgz -C /opt/
+          sudo ln -s /opt/allure-2.24.0/bin/allure /usr/bin/allure
+          allure --version
+
       - name: Run tests
         run: |
           pytest --alluredir=./reports
@@ -37,7 +44,7 @@ jobs:
           allure generate ./reports -o ./allure-report --clean
 
       - name: Upload Allure report as artifact
-        uses: actions/upload-artifact@v4  # Используем актуальную версию
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: ./allure-report
