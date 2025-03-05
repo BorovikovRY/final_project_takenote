@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Используем актуальную версию
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -37,7 +37,7 @@ jobs:
           allure generate ./reports -o ./allure-report --clean
 
       - name: Upload Allure report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Используем актуальную версию
         with:
           name: allure-report
           path: ./allure-report
