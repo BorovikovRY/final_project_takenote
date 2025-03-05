@@ -3,7 +3,7 @@ name: Allure Report
 on:
   push:
     branches:
-      - main  # Укажите вашу ветку
+      - main
   pull_request:
     branches:
       - main
@@ -45,7 +45,7 @@ jobs:
           allure generate ./reports -o ./allure-report --clean
 
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'  # Публикуем только для main ветки
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
