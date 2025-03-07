@@ -1,11 +1,11 @@
 import pytest
 import requests
 
-# Тест 15: Успешная аутентификация
+# Проверяет Успешная аутентификация
 def test_successful_login(auth_token):
     assert auth_token is not None  # Проверка получения токена <button class="citation-flag" data-index="8">
 
-# Тест 16: Неудачная аутентификация
+# Проверяет Неудачная аутентификация
 def test_failed_login(base_url):
     response = requests.post(
         f"{base_url}/auth/login",
