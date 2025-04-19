@@ -1,12 +1,12 @@
 import pytest
 import requests
 
-# Базовый URL для всех тестов <button class="citation-flag" data-index="3"><button class="citation-flag" data-index="8">
+# Базовый URL для всех тестов
 @pytest.fixture(scope="session")
 def base_url():
     return "https://fakestoreapi.com"
 
-# Тестовые данные для продуктов <button class="citation-flag" data-index="5">
+# Тестовые данные для продуктов
 @pytest.fixture
 def product_data():
     return {
@@ -17,7 +17,7 @@ def product_data():
         "category": "electronics"
     }
 
-# Тестовые данные для пользователей <button class="citation-flag" data-index="5">
+# Тестовые данные для пользователей
 @pytest.fixture
 def user_data():
     return {
@@ -28,7 +28,7 @@ def user_data():
         "address": {"city": "Test City", "street": "Test St"}
     }
 
-# Тестовые данные для корзин <button class="citation-flag" data-index="5">
+# Тестовые данные для корзин
 @pytest.fixture
 def cart_data():
     return {
@@ -36,7 +36,7 @@ def cart_data():
         "products": [{"productId": 2, "quantity": 3}]
     }
 
-# Фикстура для получения токена аутентификации <button class="citation-flag" data-index="8">
+# Фикстура для получения токена аутентификации
 @pytest.fixture(scope="session")
 def auth_token():
     response = requests.post(
